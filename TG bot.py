@@ -5,7 +5,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 # Настройка подключения к Google Sheets
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-credentials = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name("/opt/render/project/src/service_account.json", scope)
+
 client = gspread.authorize(credentials)
 sheet = client.open("Feedback").sheet1  # Убедитесь, что таблица существует
 
